@@ -1,0 +1,24 @@
+name: SquaremapHider
+version: '1.0.0'
+main: net.bordermc.squaremapHider.SquaremapHider
+author: BorderMC
+api-version: '1.21'
+website: https://bordermc.net
+load: POSTWORLD
+
+permissions:
+  squaremaphider.always_show:
+    description: Always shows the user, bypassing all checks.
+    default: false
+  squaremaphider.always_hidden:
+    description: Always hides the user, bypassing all checks.
+    default: false
+  squaremaphider.reload:
+    description: Allows to reload the configuration file.
+    default: op
+
+commands:
+  squaremaphider:
+    description: Commands related to squaremap hider.
+    permission: squaremaphider.reload
+    permission-message: You don't have the permission to use this command.

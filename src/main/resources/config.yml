@@ -1,0 +1,22 @@
+# If this plugin should work.
+# The checks starts on eye height and then checks if there is any non-see-through block above the player.
+enabled: true
+
+# If the player should be hidden when they sneak.
+should_sneaking_hide: true
+
+# If being invis should always hide the player.
+# This is already configurable in Squaremap's configuration file, but I added it as option here.
+# This will NOT overwrite the configuration Squaremap
+should_invis_hide: true
+
+# If the player should be hidden when they are in a vehicle (Camel, horse, ...)
+should_in_vehicle_hide: false
+
+# If wearing a carved pumpkin as a helmet should always hide the player.
+# Players may abuse this by downloading a resource pack to remove the carved pumpkin blur.
+should_carved_pumkin_hide: false
+
+# If wearing a jack o lantern as a helmet should always hide the player.
+# Players may abuse this by downloading a resource pack to remove the pumpkin blur.
+should_jack_o_lantern_hide: false

@@ -6,6 +6,9 @@ api-version: '1.21'
 website: https://bordermc.net
 load: POSTWORLD
 
+depend:
+  - Squaremap
+
 permissions:
   squaremaphider.always_show:
     description: Always shows the user, bypassing all checks.

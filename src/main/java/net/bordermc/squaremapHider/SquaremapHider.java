@@ -11,30 +11,37 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Objects;
 
 public final class SquaremapHider extends JavaPlugin {
-    private final SquaremapHiderService service;
-    private final ConfigManager config;
-
-    public SquaremapHider() {
-        this.config = new ConfigManager(this);
-        this.service = new SquaremapHiderService(config);
-    }
+    private ConfigManager config;
+    private SquaremapHiderService service;
 
     @Override
     public void onEnable() {
+        this.config = new ConfigManager(this);
+        saveDefaultConfig();
+        config.reload();
+
         if (Bukkit.getPluginManager().getPlugin("squaremap") == null || !Bukkit.getPluginManager().isPluginEnabled("squaremap")) {
             getLogger().info("[Squaremap Hider] squaremap plugin not found; Plugin will stay idle.");
             return;
         }
 
-        Objects.requireNonNull(getCommand("endportal"), "Command 'endportal' is not defined in plugin.yml")
-                .setExecutor(new SquaremapHiderCommand(config, service));
+        this.service = new SquaremapHiderService(config);
+
+        Objects.requireNonNull(getCommand("squaremaphider"), "Command 'squaremaphider' is not defined in plugin.yml")
+                .setExecutor(new SquaremapHiderCommand(config));
         getServer().getPluginManager().registerEvents(
                 new SquaremapHiderListener(service), this
         );
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            service.checkPlayer(player);
+        }
     }
 
     @Override
     public void onDisable() {
+        if (service == null) return;
+
         // Show all players on the map if this plugin gets disabled.
         for (Player player : Bukkit.getOnlinePlayers()) {
             service.show(player);

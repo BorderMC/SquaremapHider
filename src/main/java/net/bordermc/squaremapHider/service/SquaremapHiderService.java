@@ -37,10 +37,7 @@ public class SquaremapHiderService {
         if (helmet != null) {
             Material helmetType = helmet.getType();
 
-            if ((config.shouldCarvedPumpkinHide()
-                    && helmetType == Material.CARVED_PUMPKIN)
-                    || (config.shouldJackOLanternHide()
-                    && helmetType == Material.JACK_O_LANTERN)) {
+            if (config.shouldCarvedPumpkinHide() && helmetType == Material.CARVED_PUMPKIN) {
                 return true;
             }
         }
@@ -53,9 +50,9 @@ public class SquaremapHiderService {
         int blockX = eyeLocation.getBlockX();
         int blockZ = eyeLocation.getBlockZ();
         int startY = Math.max(world.getMinHeight(), eyeLocation.getBlockY());
-        int maxY = world.getHighestBlockAt(blockX, blockX, HeightMap.WORLD_SURFACE).getY();
+        int maxY = world.getHighestBlockAt(blockX, blockZ, HeightMap.WORLD_SURFACE).getY();
 
-        for (int y = startY; y < maxY; y++) {
+        for (int y = startY; y <= maxY; y++) {
             Block block = world.getBlockAt(blockX, y, blockZ);
             if (isPassThroughBlock(block.getType())) {
                 continue;
@@ -97,6 +94,3 @@ public class SquaremapHiderService {
         map.playerManager().hide(player.getUniqueId());
     }
 }
-
-
-

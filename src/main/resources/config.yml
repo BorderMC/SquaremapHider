@@ -16,7 +16,3 @@ should_in_vehicle_hide: false
 # If wearing a carved pumpkin as a helmet should always hide the player.
 # Players may abuse this by downloading a resource pack to remove the carved pumpkin blur.
 should_carved_pumkin_hide: false
-
-# If wearing a jack o lantern as a helmet should always hide the player.
-# Players may abuse this by downloading a resource pack to remove the pumpkin blur.
-should_jack_o_lantern_hide: false

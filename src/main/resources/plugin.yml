@@ -1,4 +1,4 @@
-name: SquaremapHider
+name: BmcSquaremapHider
 version: '1.0.0'
 main: net.bordermc.squaremapHider.SquaremapHider
 author: BorderMC
@@ -7,13 +7,13 @@ website: https://bordermc.net
 load: POSTWORLD
 
 depend:
-  - Squaremap
+  - squaremap
 
 permissions:
   squaremaphider.always_show:
     description: Always shows the user, bypassing all checks.
     default: false
-  squaremaphider.always_hidden:
+  squaremaphider.always_hide:
     description: Always hides the user, bypassing all checks.
     default: false
   squaremaphider.reload:

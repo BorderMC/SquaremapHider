@@ -8,7 +8,7 @@ public class ConfigManager {
 
     private final SquaremapHider plugin;
 
-    private boolean enabled, shouldCarvedPumpkinHide, shouldJackOLanternHide, shouldInvisHide, shouldSneakingHide, shouldInVehicleHide;
+    private boolean enabled, shouldCarvedPumpkinHide, shouldInvisHide, shouldSneakingHide, shouldInVehicleHide;
 
     public ConfigManager(@NotNull SquaremapHider plugin) {
         this.plugin = plugin;
@@ -21,7 +21,6 @@ public class ConfigManager {
 
         enabled = config.getBoolean("enabled", true);
         shouldCarvedPumpkinHide = config.getBoolean("should_carved_pumkin_hide", false);
-        shouldJackOLanternHide = config.getBoolean("should_jack_o_lantern_hide", false);
         shouldInvisHide = config.getBoolean("should_invis_hide", true);
         shouldSneakingHide = config.getBoolean("should_sneaking_hide", true);
         shouldInVehicleHide = config.getBoolean("should_in_vehicle_hide", false);
@@ -33,10 +32,6 @@ public class ConfigManager {
 
     protected boolean shouldCarvedPumpkinHide() {
         return shouldCarvedPumpkinHide;
-    }
-
-    protected boolean shouldJackOLanternHide() {
-        return shouldJackOLanternHide;
     }
 
     protected boolean shouldInvisHide() {

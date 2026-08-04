@@ -22,12 +22,11 @@ public class SquaremapHiderListener implements Listener {
 
     @EventHandler
     public void onQuit(@NotNull PlayerQuitEvent event) {
-        service.hide(event.getPlayer());
+        service.show(event.getPlayer());
     }
 
     @EventHandler
     public void onMove(@NotNull PlayerMoveEvent event) {
-        // Only check when the player moves a block
         if (event.hasChangedPosition()) service.checkPlayer(event.getPlayer());
     }
 }
